@@ -12,6 +12,7 @@ import { forkJoin, map } from 'rxjs';
 })
 export class PokemonShowComponent {
 
+
   pokemon: any = {
     name: '',
     types: [],
