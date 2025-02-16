@@ -1,4 +1,41 @@
-<h1 >Pokemon Show!</h1>
+<h1>Pokemon Show!</h1>
 <input type="text" [(ngModel)]="inputName" placeholder="Enter Pokemon Name">
 <button (click)="getPokemon()">Get Pokemon</button>
+
+
+
+<h2>{{pokemon.name | titlecase}}</h2>
+
+<div  class="type-cont">
+    <h3 *ngFor="let type of pokemon.types" [ngStyle]="{'background-color': type.color}" class="type">{{type.name | titlecase}}</h3>
+
+</div>
+
+<img src="{{pokemon.sprite}}" alt="">
+
+
+<h3>Evolutions</h3>
+<div class="evolutions-cont">
+
+    <div *ngFor="let evolution of pokemon.evolutionChain" class="evolution">
+        <h4>{{evolution.name | titlecase}}</h4>
+        <img src="{{evolution.sprite}}" alt="">
+
+    </div>
+
+</div>
+
+<h3>Movements</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        
+    </tr>
+    <tr *ngFor="let move of pokemon.movimientos" >
+        <td>{{move.name | titlecase}}</td>
+        <td [ngStyle]="{'background-color': move.color}">{{move.type | titlecase}}</td>
+    
+    </tr>
+</table>
 
